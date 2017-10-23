@@ -10,16 +10,41 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var hoursMinutes: UILabel!
+    @IBOutlet weak var seconds: UILabel!
+    @IBOutlet weak var ampm: UILabel!
+    
+    let clockViewModel: ClockViewModel = SystemClock()
+
+    var timer = Timer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        timer = Timer.scheduledTimer(timeInterval: 1.0,
+            target: self,
+            selector: #selector(tick),
+            userInfo: nil,
+            repeats: true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func changeClockState() {
+        clockViewModel.updateClockState()
     }
-
-
+    
+    @objc func tick() {
+        hoursMinutes.text = clockViewModel.hoursAndMinutes
+        if clockViewModel.hoursAndMinutes.contains("00") {
+            ampm.textColor = .yellow
+            hoursMinutes.textColor = .yellow
+            hoursMinutes.font = UIFont(name: "HelveticaNeue-Thin", size: 84)
+        } else {
+            ampm.textColor = .green
+            hoursMinutes.textColor = .green
+            hoursMinutes.font = UIFont(name: "HelveticaNeue-Ultralight", size: 84)
+        }
+        seconds.text = clockViewModel.seconds
+        ampm.text    = clockViewModel.ampm
+    }
 }
 

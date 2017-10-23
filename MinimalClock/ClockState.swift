@@ -13,4 +13,33 @@ enum ClockState {
     case twelveHourWithSeconds
     case twentyFourHour
     case twentyFourHourWithSeconds
+
+    static let allValues = [
+        twelveHour,
+        twelveHourWithSeconds,
+        twentyFourHour,
+        twentyFourHourWithSeconds]
+
+    var next: ClockState {
+        switch self {
+        case .twelveHour:
+            return .twelveHourWithSeconds
+        case .twelveHourWithSeconds:
+            return .twentyFourHourWithSeconds
+        case .twentyFourHourWithSeconds:
+            return .twentyFourHour
+        case .twentyFourHour:
+            return .twelveHour
+        }
+    }
+
+    var isTwelveHour: Bool {
+        return self == .twelveHour ||
+            self == .twelveHourWithSeconds
+    }
+
+    var isSecondsVisible: Bool {
+        return self == .twentyFourHourWithSeconds ||
+            self == .twelveHourWithSeconds
+    }
 }

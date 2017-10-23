@@ -13,21 +13,11 @@ class SystemClock: ClockViewModel {
     var clockState: ClockState
 
     func updateClockState() {
-        switch clockState {
-        case .twelveHour:
-            clockState = .twelveHourWithSeconds
-        case .twelveHourWithSeconds:
-            clockState = .twentyFourHourWithSeconds
-        case .twentyFourHourWithSeconds:
-            clockState = .twentyFourHour
-        case .twentyFourHour:
-            clockState = .twelveHour
-        }
+        clockState = clockState.next
     }
 
     var hoursAndMinutes: String {
-        if clockState == .twelveHour ||
-            clockState == .twelveHourWithSeconds {
+        if clockState.isTwelveHour {
             return hh12mmFormatter.string(from: Date())
         } else {
             return hh24mmFormatter.string(from: Date())
@@ -35,16 +25,14 @@ class SystemClock: ClockViewModel {
     }
 
     var seconds: String {
-        if clockState == .twelveHourWithSeconds ||
-            clockState == .twentyFourHourWithSeconds {
+        if clockState.isSecondsVisible {
             return ssFormatter.string(from: Date())
         } else {
             return " "
         }
     }
     var ampm: String {
-        if clockState == .twelveHour ||
-            clockState == .twelveHourWithSeconds {
+        if clockState.isTwelveHour {
             return ampmFormatter.string(from: Date()).lowercased()
         } else {
             return " "

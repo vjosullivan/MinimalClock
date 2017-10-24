@@ -26,6 +26,11 @@ class ViewController: UIViewController {
     var timer = Timer()
 
     override func viewWillAppear(_ animated: Bool) {
+        buttons.isHidden = true
+        day.isHidden = true
+        date.isHidden = true
+        timeZone.isHidden = true
+        ampm.isHidden = true
         hoursMinutes.text = ""
         seconds.text = ""
         ampm.text = ""

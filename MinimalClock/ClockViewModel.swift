@@ -12,8 +12,9 @@ protocol ClockViewModel {
     var hoursAndMinutes: String { get }
     var seconds: String { get }
     var ampm: String { get }
-    
-    var clockState: ClockState { get }
+    var day: String { get }
+    var date: String { get }
+    var timeZone: String { get }
 
-    func updateClockState()
+    func toggleHoursDisplay()
 }

@@ -10,14 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private let displayGreen = UIColor(red: 102.0/255.0, green: 1.0, blue: 102.0/255.0, alpha: 1.0)
+
     @IBOutlet weak var hoursMinutes: UILabel!
     @IBOutlet weak var seconds: UILabel!
     @IBOutlet weak var ampm: UILabel!
-    
+    @IBOutlet weak var day: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var timeZone: UILabel!
+
+    @IBOutlet weak var buttons: UIStackView!
+
     let clockViewModel: ClockViewModel = SystemClock()
 
     var timer = Timer()
 
+    override func viewWillAppear(_ animated: Bool) {
+        hoursMinutes.text = ""
+        seconds.text = ""
+        ampm.text = ""
+        day.text = ""
+        date.text = ""
+        timeZone.text = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,10 +44,6 @@ class ViewController: UIViewController {
             repeats: true)
     }
 
-    @IBAction func changeClockState() {
-        clockViewModel.updateClockState()
-    }
-    
     @objc func tick() {
         hoursMinutes.text = clockViewModel.hoursAndMinutes
         if clockViewModel.hoursAndMinutes.contains("00") {
@@ -39,12 +51,38 @@ class ViewController: UIViewController {
             hoursMinutes.textColor = .yellow
             hoursMinutes.font = UIFont(name: "HelveticaNeue-Thin", size: 84)
         } else {
-            ampm.textColor = .green
-            hoursMinutes.textColor = .green
+            ampm.textColor = displayGreen
+            hoursMinutes.textColor = displayGreen
             hoursMinutes.font = UIFont(name: "HelveticaNeue-Ultralight", size: 84)
         }
-        seconds.text = clockViewModel.seconds
-        ampm.text    = clockViewModel.ampm
+        seconds.text  = clockViewModel.seconds
+        ampm.text     = clockViewModel.ampm
+        day.text      = clockViewModel.day
+        date.text     = clockViewModel.date
+        timeZone.text = clockViewModel.timeZone
+    }
+
+    @IBAction func toggleButtons() {
+        buttons.isHidden = !buttons.isHidden
+    }
+
+    @IBAction func toggleHours() {
+        clockViewModel.toggleHoursDisplay()
+    }
+
+    @IBAction func toggleSeconds() {
+        seconds.isHidden = !seconds.isHidden
+    }
+
+    @IBAction func toggleDay() {
+        day.isHidden = !day.isHidden
+    }
+
+    @IBAction func toggleDate() {
+        date.isHidden = !date.isHidden
+    }
+
+    @IBAction func toggleTimeZone() {
+        timeZone.isHidden = !timeZone.isHidden
     }
 }
-

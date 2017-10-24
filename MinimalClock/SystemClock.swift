@@ -10,14 +10,28 @@ import Foundation
 
 class SystemClock: ClockViewModel {
 
-    var clockState: ClockState
+    let hh12mmFormatter = DateFormatter()
+    let hh24mmFormatter = DateFormatter()
+    let ssFormatter = DateFormatter()
+    let ampmFormatter = DateFormatter()
+    let dayFormatter = DateFormatter()
+    let dateFormatter = DateFormatter()
+    let timeZoneFormatter = DateFormatter()
 
-    func updateClockState() {
-        clockState = clockState.next
+    private var showTwelveHour = false
+
+    init() {
+        hh12mmFormatter.dateFormat = "h:mm"
+        hh24mmFormatter.dateFormat = "HH:mm"
+        ssFormatter.dateFormat = " ss"
+        ampmFormatter.dateFormat = " a"
+        dayFormatter.dateFormat = "EEEE"
+        dateFormatter.dateStyle = .long
+        timeZoneFormatter.dateFormat = "zzzz"
     }
 
     var hoursAndMinutes: String {
-        if clockState.isTwelveHour {
+        if showTwelveHour {
             return hh12mmFormatter.string(from: Date())
         } else {
             return hh24mmFormatter.string(from: Date())
@@ -25,30 +39,22 @@ class SystemClock: ClockViewModel {
     }
 
     var seconds: String {
-        if clockState.isSecondsVisible {
-            return ssFormatter.string(from: Date())
-        } else {
-            return " "
-        }
+        return ssFormatter.string(from: Date())
     }
     var ampm: String {
-        if clockState.isTwelveHour {
-            return ampmFormatter.string(from: Date()).lowercased()
-        } else {
-            return " "
-        }
+        return ampmFormatter.string(from: Date()).lowercased()
+    }
+    var day: String {
+        return dayFormatter.string(from: Date())
+    }
+    var date: String {
+        return dateFormatter.string(from: Date())
+    }
+    var timeZone: String {
+        return timeZoneFormatter.string(from: Date())
     }
 
-    let hh12mmFormatter = DateFormatter()
-    let hh24mmFormatter = DateFormatter()
-    let ssFormatter = DateFormatter()
-    let ampmFormatter = DateFormatter()
-
-    init() {
-        clockState = .twentyFourHourWithSeconds
-        hh12mmFormatter.dateFormat = "h:mm"
-        hh24mmFormatter.dateFormat = "HH:mm"
-        ssFormatter.dateFormat = " ss"
-        ampmFormatter.dateFormat = " a"
+    func toggleHoursDisplay() {
+        showTwelveHour = !showTwelveHour
     }
 }

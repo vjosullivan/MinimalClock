@@ -6,7 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,7 +101,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygj-Q8-CWn" userLabel="Hours button">
                                         <rect key="frame" x="0.0" y="0.0" width="121.5" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Hours"/>
                                         <connections>
                                             <action selector="toggleHours" destination="BYZ-38-t0r" eventType="touchUpInside" id="9XS-iW-F1r"/>
@@ -107,7 +108,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqu-AV-4ln" userLabel="Seconds button">
                                         <rect key="frame" x="0.0" y="75" width="121.5" height="75"/>
-                                        <color key="backgroundColor" red="0.0" green="0.49803921568627452" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Seconds"/>
                                         <connections>
                                             <action selector="toggleSeconds" destination="BYZ-38-t0r" eventType="touchUpInside" id="psL-Ek-8qn"/>
@@ -115,7 +115,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plT-Zk-ycV" userLabel="dayButton">
                                         <rect key="frame" x="0.0" y="150" width="121.5" height="75"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Day"/>
                                         <connections>
                                             <action selector="toggleDay" destination="BYZ-38-t0r" eventType="touchUpInside" id="Va9-Lx-rjr"/>
@@ -123,7 +122,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ts-68-JAd" userLabel="dateButton">
                                         <rect key="frame" x="0.0" y="225" width="121.5" height="75"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.49803921568627452" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Date"/>
                                         <connections>
                                             <action selector="toggleDate" destination="BYZ-38-t0r" eventType="touchUpInside" id="obq-zi-1oT"/>
@@ -131,7 +129,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuv-Nk-kfq" userLabel="timezoneButton">
                                         <rect key="frame" x="0.0" y="300" width="121.5" height="75"/>
-                                        <color key="backgroundColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Zone"/>
                                         <connections>
                                             <action selector="toggleTimeZone" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ce9-si-NQq"/>
@@ -139,11 +136,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="GoA-xu-MEX" secondAttribute="height" multiplier="1618:5000" id="YQo-NX-RTf"/>
+                                    <constraint firstAttribute="width" secondItem="GoA-xu-MEX" secondAttribute="height" multiplier="1.618:5" id="YQo-NX-RTf"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Universal Standard Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBV-tl-KLB" userLabel="TimeZone label">
-                                <rect key="frame" x="0.0" y="354.5" width="545.5" height="20.5"/>
+                                <rect key="frame" x="0.0" y="354.5" width="667" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -151,7 +148,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GoA-xu-MEX" firstAttribute="leading" secondItem="yBV-tl-KLB" secondAttribute="trailing" id="CV5-By-Rx8"/>
+                            <constraint firstItem="GoA-xu-MEX" firstAttribute="trailingMargin" secondItem="yBV-tl-KLB" secondAttribute="trailing" identifier="timeZoneTrailing" id="CV5-By-Rx8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GoA-xu-MEX" secondAttribute="trailing" id="HHK-tb-eJU"/>
                             <constraint firstItem="yBV-tl-KLB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IFE-GG-tNv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ba8-mo-rfD" secondAttribute="bottom" id="Ieq-g1-JoG"/>
@@ -168,12 +165,18 @@
                     </view>
                     <connections>
                         <outlet property="ampm" destination="uOt-48-ZDV" id="rsT-VA-Swq"/>
-                        <outlet property="buttons" destination="GoA-xu-MEX" id="FnM-dK-1VI"/>
+                        <outlet property="buttonStack" destination="GoA-xu-MEX" id="1ri-xR-wot"/>
                         <outlet property="date" destination="Ewa-e9-mYg" id="ufF-wJ-Vbg"/>
+                        <outlet property="dateButton" destination="6Ts-68-JAd" id="muY-aF-LCd"/>
                         <outlet property="day" destination="iQ2-lP-gcf" id="sPj-FJ-UmT"/>
+                        <outlet property="dayButton" destination="plT-Zk-ycV" id="Ce0-WX-q7i"/>
+                        <outlet property="hourButton" destination="ygj-Q8-CWn" id="ycM-bW-HUg"/>
                         <outlet property="hoursMinutes" destination="Nld-PV-k2A" id="bST-AY-iJg"/>
                         <outlet property="seconds" destination="s8j-0d-iGm" id="0xv-Rf-bBS"/>
+                        <outlet property="secondsButton" destination="Qqu-AV-4ln" id="qgH-kx-BQj"/>
                         <outlet property="timeZone" destination="yBV-tl-KLB" id="lIz-Ng-Pbx"/>
+                        <outlet property="timeZoneButton" destination="Uuv-Nk-kfq" id="XrA-vh-Kp0"/>
+                        <outlet property="timeZoneLabelTrailingConstraint" destination="CV5-By-Rx8" id="K5b-iK-a0s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

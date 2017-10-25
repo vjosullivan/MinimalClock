@@ -18,25 +18,47 @@ class ViewController: UIViewController {
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var timeZone: UILabel!
+    @IBOutlet weak var timeZoneLabelTrailingConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var buttons: UIStackView!
+    @IBOutlet weak var buttonStack: UIStackView!
+    @IBOutlet weak var hourButton: UIButton!
+    @IBOutlet weak var secondsButton: UIButton!
+    @IBOutlet weak var dayButton: UIButton!
+    @IBOutlet weak var dateButton: UIButton!
+    @IBOutlet weak var timeZoneButton: UIButton!
 
     let clockViewModel: ClockViewModel = SystemClock()
 
     var timer = Timer()
 
     override func viewWillAppear(_ animated: Bool) {
-        buttons.isHidden = true
-        day.isHidden = true
-        date.isHidden = true
-        timeZone.isHidden = true
-        ampm.isHidden = true
         hoursMinutes.text = ""
         seconds.text = ""
         ampm.text = ""
         day.text = ""
         date.text = ""
         timeZone.text = ""
+        hourButton.tintColor = displayGreen
+        hourButton.titleLabel?.lineBreakMode = .byWordWrapping
+        hourButton.titleLabel?.textAlignment = .center
+        hourButton.setTitle(clockViewModel.hourButtonText, for: .normal)
+        secondsButton.tintColor = displayGreen
+        secondsButton.titleLabel?.lineBreakMode = .byWordWrapping
+        secondsButton.titleLabel?.textAlignment = .center
+        secondsButton.setTitle(clockViewModel.secondButtonText, for: .normal)
+        dayButton.tintColor = displayGreen
+        dayButton.titleLabel?.lineBreakMode = .byWordWrapping
+        dayButton.titleLabel?.textAlignment = .center
+        dayButton.setTitle(clockViewModel.dayButtonText, for: .normal)
+        dateButton.tintColor = displayGreen
+        dateButton.titleLabel?.lineBreakMode = .byWordWrapping
+        dateButton.titleLabel?.textAlignment = .center
+        dateButton.setTitle(clockViewModel.dateButtonText, for: .normal)
+        timeZoneButton.tintColor = displayGreen
+        timeZoneButton.titleLabel?.lineBreakMode = .byWordWrapping
+        timeZoneButton.titleLabel?.textAlignment = .center
+        timeZoneButton.setTitle(clockViewModel.timeZoneButtonText, for: .normal)
+        buttonStack.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -68,26 +90,45 @@ class ViewController: UIViewController {
     }
 
     @IBAction func toggleButtons() {
-        buttons.isHidden = !buttons.isHidden
+        buttonStack.isHidden = !buttonStack.isHidden
+        //self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 1) {
+            self.timeZoneLabelTrailingConstraint.constant = (self.buttonStack.isHidden) ? 0 : 200
+            self.view.layoutIfNeeded()
+        }
     }
 
     @IBAction func toggleHours() {
         clockViewModel.toggleHoursDisplay()
+        hourButton.setTitle(clockViewModel.hourButtonText, for: .normal)
+        buttonStack.isHidden = true
     }
 
     @IBAction func toggleSeconds() {
-        seconds.isHidden = !seconds.isHidden
+        clockViewModel.toggleSecondsDisplay()
+        secondsButton.setTitle(clockViewModel.secondButtonText, for: .normal)
+        buttonStack.isHidden = true
     }
 
     @IBAction func toggleDay() {
-        day.isHidden = !day.isHidden
+        clockViewModel.toggleDayDisplay()
+        dayButton.setTitle(clockViewModel.dayButtonText, for: .normal)
+        buttonStack.isHidden = true
     }
 
     @IBAction func toggleDate() {
-        date.isHidden = !date.isHidden
+        clockViewModel.toggleDateDisplay()
+        dateButton.setTitle(clockViewModel.dateButtonText, for: .normal)
+        buttonStack.isHidden = true
     }
 
     @IBAction func toggleTimeZone() {
-        timeZone.isHidden = !timeZone.isHidden
+        clockViewModel.toggleTimeZoneDisplay()
+        timeZoneButton.setTitle(clockViewModel.timeZoneButtonText, for: .normal)
+        buttonStack.isHidden = true
+        UIView.animate(withDuration: 1) {
+            self.timeZoneLabelTrailingConstraint.constant = (self.buttonStack.isHidden) ? 0 : 200
+            self.view.layoutIfNeeded()
+        }
     }
 }

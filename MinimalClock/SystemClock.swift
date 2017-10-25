@@ -10,15 +10,36 @@ import Foundation
 
 class SystemClock: ClockViewModel {
 
-    let hh12mmFormatter = DateFormatter()
-    let hh24mmFormatter = DateFormatter()
-    let ssFormatter = DateFormatter()
-    let ampmFormatter = DateFormatter()
-    let dayFormatter = DateFormatter()
-    let dateFormatter = DateFormatter()
+    let hh12mmFormatter   = DateFormatter()
+    let hh24mmFormatter   = DateFormatter()
+    let ssFormatter       = DateFormatter()
+    let ampmFormatter     = DateFormatter()
+    let dayFormatter      = DateFormatter()
+    let dateFormatter     = DateFormatter()
     let timeZoneFormatter = DateFormatter()
 
-    private var showTwelveHour = false
+    var hourButtonText: String {
+        return (showTwelveHour) ? "24\nHour" : "12\nHour"
+    }
+    var secondButtonText: String {
+        return (secondsVisible) ? "Hide\nSeconds" : "Show\nSeconds"
+    }
+    var dayButtonText: String {
+        return (dayVisible) ? "Hide\nDay" : "Show\nDay"
+    }
+    var dateButtonText: String {
+        return (dateVisible) ? "Hide\nDate" : "Show\nDate"
+    }
+    var timeZoneButtonText: String {
+        return (timeZoneVisible) ? "Hide\nTimezone" : "Show\nTimezone"
+    }
+
+    var showTwelveHour  = false
+    var secondsVisible  = true
+    var ampmVisible     = false
+    var dayVisible      = false
+    var dateVisible     = false
+    var timeZoneVisible = false
 
     init() {
         hh12mmFormatter.dateFormat = "h:mm"
@@ -39,22 +60,39 @@ class SystemClock: ClockViewModel {
     }
 
     var seconds: String {
-        return ssFormatter.string(from: Date())
+        return (secondsVisible) ? ssFormatter.string(from: Date()) : " "
     }
+
     var ampm: String {
-        return ampmFormatter.string(from: Date()).lowercased()
+        return (showTwelveHour) ? ampmFormatter.string(from: Date()).lowercased() : " "
     }
     var day: String {
-        return dayFormatter.string(from: Date())
+        return (dayVisible) ? dayFormatter.string(from: Date()) : ""
     }
     var date: String {
-        return dateFormatter.string(from: Date())
+        return (dateVisible) ? dateFormatter.string(from: Date()) : ""
     }
     var timeZone: String {
-        return timeZoneFormatter.string(from: Date())
+        return (timeZoneVisible) ? timeZoneFormatter.string(from: Date()) : " "
     }
 
     func toggleHoursDisplay() {
         showTwelveHour = !showTwelveHour
+    }
+
+    func toggleSecondsDisplay() {
+        secondsVisible = !secondsVisible
+    }
+
+    func toggleDayDisplay() {
+        dayVisible = !dayVisible
+    }
+
+    func toggleDateDisplay() {
+        dateVisible = !dateVisible
+    }
+
+    func toggleTimeZoneDisplay() {
+        timeZoneVisible = !timeZoneVisible
     }
 }

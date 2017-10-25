@@ -32,6 +32,9 @@ class ViewController: UIViewController {
     var timer = Timer()
 
     override func viewWillAppear(_ animated: Bool) {
+
+        UIApplication.shared.isIdleTimerDisabled = true
+
         hoursMinutes.text = ""
         hoursMinutes.textColor = displayGreen
         seconds.text = ""

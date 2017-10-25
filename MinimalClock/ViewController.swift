@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     private let displayGreen = UIColor(red: 102.0/255.0, green: 1.0, blue: 102.0/255.0, alpha: 1.0)
+    private let displayAmber = UIColor(red: 1.0, green: 0.5, blue: 0.25, alpha: 1.0)
 
     @IBOutlet weak var hoursMinutes: UILabel!
     @IBOutlet weak var seconds: UILabel!
@@ -18,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var timeZone: UILabel!
-    @IBOutlet weak var timeZoneLabelTrailingConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var buttonStack: UIStackView!
     @IBOutlet weak var hourButton: UIButton!
@@ -33,31 +33,22 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         hoursMinutes.text = ""
+        hoursMinutes.textColor = displayGreen
         seconds.text = ""
+        seconds.textColor = displayAmber
         ampm.text = ""
+        ampm.textColor = displayGreen
         day.text = ""
+        day.textColor = displayGreen
         date.text = ""
+        date.textColor = displayGreen
         timeZone.text = ""
-        hourButton.tintColor = displayGreen
-        hourButton.titleLabel?.lineBreakMode = .byWordWrapping
-        hourButton.titleLabel?.textAlignment = .center
-        hourButton.setTitle(clockViewModel.hourButtonText, for: .normal)
-        secondsButton.tintColor = displayGreen
-        secondsButton.titleLabel?.lineBreakMode = .byWordWrapping
-        secondsButton.titleLabel?.textAlignment = .center
-        secondsButton.setTitle(clockViewModel.secondButtonText, for: .normal)
-        dayButton.tintColor = displayGreen
-        dayButton.titleLabel?.lineBreakMode = .byWordWrapping
-        dayButton.titleLabel?.textAlignment = .center
-        dayButton.setTitle(clockViewModel.dayButtonText, for: .normal)
-        dateButton.tintColor = displayGreen
-        dateButton.titleLabel?.lineBreakMode = .byWordWrapping
-        dateButton.titleLabel?.textAlignment = .center
-        dateButton.setTitle(clockViewModel.dateButtonText, for: .normal)
-        timeZoneButton.tintColor = displayGreen
-        timeZoneButton.titleLabel?.lineBreakMode = .byWordWrapping
-        timeZoneButton.titleLabel?.textAlignment = .center
-        timeZoneButton.setTitle(clockViewModel.timeZoneButtonText, for: .normal)
+        timeZone.textColor = displayGreen
+        initialiseButton(hourButton, with: clockViewModel.hourButtonText)
+        initialiseButton(secondsButton, with: clockViewModel.secondButtonText)
+        initialiseButton(dayButton, with: clockViewModel.dayButtonText)
+        initialiseButton(dateButton, with: clockViewModel.dateButtonText)
+        initialiseButton(timeZoneButton, with: clockViewModel.timeZoneButtonText)
         buttonStack.isHidden = true
     }
     
@@ -91,44 +82,47 @@ class ViewController: UIViewController {
 
     @IBAction func toggleButtons() {
         buttonStack.isHidden = !buttonStack.isHidden
-        //self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 1) {
-            self.timeZoneLabelTrailingConstraint.constant = (self.buttonStack.isHidden) ? 0 : 200
-            self.view.layoutIfNeeded()
-        }
     }
 
     @IBAction func toggleHours() {
         clockViewModel.toggleHoursDisplay()
         hourButton.setTitle(clockViewModel.hourButtonText, for: .normal)
-        buttonStack.isHidden = true
+        tick()
+        toggleButtons()
     }
 
     @IBAction func toggleSeconds() {
         clockViewModel.toggleSecondsDisplay()
         secondsButton.setTitle(clockViewModel.secondButtonText, for: .normal)
-        buttonStack.isHidden = true
+        tick()
+        toggleButtons()
     }
 
     @IBAction func toggleDay() {
         clockViewModel.toggleDayDisplay()
         dayButton.setTitle(clockViewModel.dayButtonText, for: .normal)
-        buttonStack.isHidden = true
+        tick()
+        toggleButtons()
     }
 
     @IBAction func toggleDate() {
         clockViewModel.toggleDateDisplay()
         dateButton.setTitle(clockViewModel.dateButtonText, for: .normal)
-        buttonStack.isHidden = true
+        tick()
+        toggleButtons()
     }
 
     @IBAction func toggleTimeZone() {
         clockViewModel.toggleTimeZoneDisplay()
         timeZoneButton.setTitle(clockViewModel.timeZoneButtonText, for: .normal)
-        buttonStack.isHidden = true
-        UIView.animate(withDuration: 1) {
-            self.timeZoneLabelTrailingConstraint.constant = (self.buttonStack.isHidden) ? 0 : 200
-            self.view.layoutIfNeeded()
-        }
+        tick()
+        toggleButtons()
+    }
+
+    fileprivate func initialiseButton(_ button: UIButton, with text: String) {
+        button.tintColor = displayGreen
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
+        button.setTitle(text, for: .normal)
     }
 }

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -27,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-17-Mfb" userLabel="Outer stack">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-17-Mfb" userLabel="Clock casing stack">
                                 <rect key="frame" x="197" y="112.5" width="273.5" height="151.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ2-lP-gcf" userLabel="Day label">
@@ -139,7 +138,7 @@
                                     <constraint firstAttribute="width" secondItem="GoA-xu-MEX" secondAttribute="height" multiplier="1.618:5" id="YQo-NX-RTf"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Universal Standard Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBV-tl-KLB" userLabel="TimeZone label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Universal Standard Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBV-tl-KLB" userLabel="TimeZone label">
                                 <rect key="frame" x="0.0" y="354.5" width="667" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -148,16 +147,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GoA-xu-MEX" firstAttribute="trailingMargin" secondItem="yBV-tl-KLB" secondAttribute="trailing" identifier="timeZoneTrailing" id="CV5-By-Rx8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GoA-xu-MEX" secondAttribute="trailing" id="HHK-tb-eJU"/>
-                            <constraint firstItem="yBV-tl-KLB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IFE-GG-tNv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ba8-mo-rfD" secondAttribute="bottom" id="Ieq-g1-JoG"/>
+                            <constraint firstItem="yBV-tl-KLB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JKS-Qu-7m2"/>
                             <constraint firstItem="GoA-xu-MEX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JxH-Mr-1yY"/>
                             <constraint firstItem="TPb-17-Mfb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VWo-Ah-lPC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yBV-tl-KLB" secondAttribute="bottom" id="W7r-BV-VQW"/>
                             <constraint firstItem="GoA-xu-MEX" firstAttribute="leading" secondItem="Ba8-mo-rfD" secondAttribute="trailing" id="egg-vo-TLZ"/>
+                            <constraint firstItem="yBV-tl-KLB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gJJ-Dv-pWz"/>
                             <constraint firstItem="TPb-17-Mfb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gTR-Xk-O3J"/>
                             <constraint firstItem="Ba8-mo-rfD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="geA-fc-Z8s"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="yBV-tl-KLB" secondAttribute="bottom" id="r6V-2S-XCt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GoA-xu-MEX" secondAttribute="bottom" id="s3T-mn-NdA"/>
                             <constraint firstItem="Ba8-mo-rfD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xvf-Nb-h7j"/>
                         </constraints>
@@ -176,7 +175,6 @@
                         <outlet property="secondsButton" destination="Qqu-AV-4ln" id="qgH-kx-BQj"/>
                         <outlet property="timeZone" destination="yBV-tl-KLB" id="lIz-Ng-Pbx"/>
                         <outlet property="timeZoneButton" destination="Uuv-Nk-kfq" id="XrA-vh-Kp0"/>
-                        <outlet property="timeZoneLabelTrailingConstraint" destination="CV5-By-Rx8" id="K5b-iK-a0s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F19568F61F9E06AE00D210EA /* ClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19568F51F9E06AE00D210EA /* ClockViewModel.swift */; };
-		F19568F81F9E078000D210EA /* SystemClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19568F71F9E078000D210EA /* SystemClock.swift */; };
+		F167A4C31FA1E3C800365341 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167A4C21FA1E3C800365341 /* DateTime.swift */; };
+		F167A4C51FA1E3F900365341 /* SystemDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167A4C41FA1E3F900365341 /* SystemDateTime.swift */; };
+		F19568F61F9E06AE00D210EA /* DeskClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19568F51F9E06AE00D210EA /* DeskClockViewModel.swift */; };
+		F19568F81F9E078000D210EA /* StandardDeskClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19568F71F9E078000D210EA /* StandardDeskClockViewModel.swift */; };
 		F1F709131F28C2DD009BE838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F709121F28C2DD009BE838 /* AppDelegate.swift */; };
 		F1F709151F28C2DD009BE838 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F709141F28C2DD009BE838 /* ViewController.swift */; };
 		F1F709181F28C2DD009BE838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F709161F28C2DD009BE838 /* Main.storyboard */; };
@@ -28,8 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F19568F51F9E06AE00D210EA /* ClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewModel.swift; sourceTree = "<group>"; };
-		F19568F71F9E078000D210EA /* SystemClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemClock.swift; sourceTree = "<group>"; };
+		F167A4C21FA1E3C800365341 /* DateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
+		F167A4C41FA1E3F900365341 /* SystemDateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDateTime.swift; sourceTree = "<group>"; };
+		F19568F51F9E06AE00D210EA /* DeskClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskClockViewModel.swift; sourceTree = "<group>"; };
+		F19568F71F9E078000D210EA /* StandardDeskClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDeskClockViewModel.swift; sourceTree = "<group>"; };
 		F1F7090F1F28C2DD009BE838 /* MinimalClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinimalClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F709121F28C2DD009BE838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F709141F28C2DD009BE838 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,8 +91,10 @@
 				F1F709191F28C2DD009BE838 /* Assets.xcassets */,
 				F1F7091B1F28C2DD009BE838 /* LaunchScreen.storyboard */,
 				F1F7091E1F28C2DD009BE838 /* Info.plist */,
-				F19568F51F9E06AE00D210EA /* ClockViewModel.swift */,
-				F19568F71F9E078000D210EA /* SystemClock.swift */,
+				F19568F51F9E06AE00D210EA /* DeskClockViewModel.swift */,
+				F19568F71F9E078000D210EA /* StandardDeskClockViewModel.swift */,
+				F167A4C21FA1E3C800365341 /* DateTime.swift */,
+				F167A4C41FA1E3F900365341 /* SystemDateTime.swift */,
 			);
 			path = MinimalClock;
 			sourceTree = "<group>";
@@ -203,8 +209,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F19568F61F9E06AE00D210EA /* ClockViewModel.swift in Sources */,
-				F19568F81F9E078000D210EA /* SystemClock.swift in Sources */,
+				F19568F61F9E06AE00D210EA /* DeskClockViewModel.swift in Sources */,
+				F19568F81F9E078000D210EA /* StandardDeskClockViewModel.swift in Sources */,
+				F167A4C31FA1E3C800365341 /* DateTime.swift in Sources */,
+				F167A4C51FA1E3F900365341 /* SystemDateTime.swift in Sources */,
 				F1F709151F28C2DD009BE838 /* ViewController.swift in Sources */,
 				F1F709131F28C2DD009BE838 /* AppDelegate.swift in Sources */,
 			);
@@ -361,12 +369,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 27QRRWZMS6;
 				INFOPLIST_FILE = MinimalClock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vjosullivan.MinimalClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -376,12 +384,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 27QRRWZMS6;
 				INFOPLIST_FILE = MinimalClock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vjosullivan.MinimalClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -100,6 +100,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygj-Q8-CWn" userLabel="Hours button">
                                         <rect key="frame" x="0.0" y="0.0" width="121.5" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="1000" id="stW-Az-lzK"/>
+                                        </constraints>
                                         <state key="normal" title="Hours"/>
                                         <connections>
                                             <action selector="toggleHours" destination="BYZ-38-t0r" eventType="touchUpInside" id="9XS-iW-F1r"/>
@@ -107,13 +110,19 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqu-AV-4ln" userLabel="Seconds button">
                                         <rect key="frame" x="0.0" y="75" width="121.5" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="121.5" id="xz4-6p-vLS"/>
+                                        </constraints>
                                         <state key="normal" title="Seconds"/>
                                         <connections>
-                                            <action selector="toggleSeconds" destination="BYZ-38-t0r" eventType="touchUpInside" id="psL-Ek-8qn"/>
+                                            <action selector="toggleSeconds" destination="BYZ-38-t0r" eventType="touchUpInside" id="hbf-E5-jkY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plT-Zk-ycV" userLabel="dayButton">
                                         <rect key="frame" x="0.0" y="150" width="121.5" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="121.5" id="1Cn-YZ-H8B"/>
+                                        </constraints>
                                         <state key="normal" title="Day"/>
                                         <connections>
                                             <action selector="toggleDay" destination="BYZ-38-t0r" eventType="touchUpInside" id="Va9-Lx-rjr"/>
@@ -121,6 +130,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ts-68-JAd" userLabel="dateButton">
                                         <rect key="frame" x="0.0" y="225" width="121.5" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="121.5" id="2Ws-o2-ZsX"/>
+                                        </constraints>
                                         <state key="normal" title="Date"/>
                                         <connections>
                                             <action selector="toggleDate" destination="BYZ-38-t0r" eventType="touchUpInside" id="obq-zi-1oT"/>
@@ -128,6 +140,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuv-Nk-kfq" userLabel="timezoneButton">
                                         <rect key="frame" x="0.0" y="300" width="121.5" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="121.5" id="k3x-Ra-dEl"/>
+                                        </constraints>
                                         <state key="normal" title="Zone"/>
                                         <connections>
                                             <action selector="toggleTimeZone" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ce9-si-NQq"/>
@@ -167,14 +182,20 @@
                         <outlet property="buttonStack" destination="GoA-xu-MEX" id="1ri-xR-wot"/>
                         <outlet property="date" destination="Ewa-e9-mYg" id="ufF-wJ-Vbg"/>
                         <outlet property="dateButton" destination="6Ts-68-JAd" id="muY-aF-LCd"/>
+                        <outlet property="dateButtonWidth" destination="2Ws-o2-ZsX" id="QPM-eS-5l2"/>
                         <outlet property="day" destination="iQ2-lP-gcf" id="sPj-FJ-UmT"/>
                         <outlet property="dayButton" destination="plT-Zk-ycV" id="Ce0-WX-q7i"/>
+                        <outlet property="dayButtonWidth" destination="1Cn-YZ-H8B" id="yZ6-b7-rY5"/>
                         <outlet property="hourButton" destination="ygj-Q8-CWn" id="ycM-bW-HUg"/>
+                        <outlet property="hourButtonWidth" destination="stW-Az-lzK" id="xYT-R3-sLZ"/>
                         <outlet property="hoursMinutes" destination="Nld-PV-k2A" id="bST-AY-iJg"/>
                         <outlet property="seconds" destination="s8j-0d-iGm" id="0xv-Rf-bBS"/>
                         <outlet property="secondsButton" destination="Qqu-AV-4ln" id="qgH-kx-BQj"/>
+                        <outlet property="secondsButtonWidth" destination="xz4-6p-vLS" id="Hzy-wC-Pif"/>
+                        <outlet property="stackConstraint" destination="YQo-NX-RTf" id="Tjt-8g-dMW"/>
                         <outlet property="timeZone" destination="yBV-tl-KLB" id="lIz-Ng-Pbx"/>
                         <outlet property="timeZoneButton" destination="Uuv-Nk-kfq" id="XrA-vh-Kp0"/>
+                        <outlet property="timeZoneButtonWidth" destination="k3x-Ra-dEl" id="k7a-cx-lEI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

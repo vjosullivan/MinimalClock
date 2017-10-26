@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SystemClock: ClockViewModel {
+class StandardDeskClockViewModel: DeskClockViewModel {
 
     private let defaults = UserDefaults.standard
     private static let hours12Key = "DChours12"
@@ -16,6 +16,8 @@ class SystemClock: ClockViewModel {
     private static let dayKey = "DCday"
     private static let dateKey = "DCdate"
     private static let timeZoneKey = "DCtimeZone"
+    
+    private let dateTime: DateTime
 
     let hh12mmFormatter   = DateFormatter()
     let hh24mmFormatter   = DateFormatter()
@@ -48,16 +50,21 @@ class SystemClock: ClockViewModel {
     var dateVisible     = false
     var timeZoneVisible = false
 
-    init() {
-        showTwelveHour  = SystemClock.isLocaleSetting12Hour()
-        secondsVisible  = defaults.bool(forKey: SystemClock.secondsKey)
+    init(dateTime: DateTime) {
+        self.dateTime = dateTime
+        
+        UserDefaults.standard.removeObject(forKey: StandardDeskClockViewModel.hours12Key)
+        showTwelveHour  = StandardDeskClockViewModel.isLocaleSetting12Hour()
+        secondsVisible  = defaults.bool(forKey: StandardDeskClockViewModel.secondsKey)
         ampmVisible     = showTwelveHour
-        dayVisible      = defaults.bool(forKey: SystemClock.dayKey)
-        dateVisible     = defaults.bool(forKey: SystemClock.dateKey)
-        timeZoneVisible = defaults.bool(forKey: SystemClock.timeZoneKey)
+        dayVisible      = defaults.bool(forKey: StandardDeskClockViewModel.dayKey)
+        dateVisible     = defaults.bool(forKey: StandardDeskClockViewModel.dateKey)
+        timeZoneVisible = defaults.bool(forKey: StandardDeskClockViewModel.timeZoneKey)
 
         hh12mmFormatter.dateFormat = "h:mm"
+        hh12mmFormatter.locale = Locale(identifier: "")
         hh24mmFormatter.dateFormat = "HH:mm"
+        hh24mmFormatter.locale = Locale(identifier: "")
         ssFormatter.dateFormat = " ss"
         ampmFormatter.dateFormat = " a"
         dayFormatter.dateFormat = "EEEE"
@@ -75,7 +82,8 @@ class SystemClock: ClockViewModel {
     private static func isLocaleSetting12Hour() -> Bool {
         let hour12Setting = UserDefaults.standard.string(forKey: hours12Key)
         if hour12Setting == nil {
-            return true //!formatter.contains("HH")
+            let dateformat = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: Locale.current) ?? ""
+            return dateformat.contains("a")
         } else {
             return (hour12Setting == "yes")
         }
@@ -83,55 +91,51 @@ class SystemClock: ClockViewModel {
 
     var hoursAndMinutes: String {
         if showTwelveHour {
-            let txt = hh12mmFormatter.string(from: Date())
-            print(showTwelveHour, 12, txt)
-            return txt
+            return hh12mmFormatter.string(from: dateTime.current)
         } else {
-            let txt = hh24mmFormatter.string(from: Date())
-            print(showTwelveHour, 24, txt)
-            return txt
+            return hh24mmFormatter.string(from: dateTime.current)
         }
     }
 
     var seconds: String {
-        return (secondsVisible) ? ssFormatter.string(from: Date()) : " "
+        return (secondsVisible) ? ssFormatter.string(from: dateTime.current) : " "
     }
 
     var ampm: String {
-        return (showTwelveHour) ? ampmFormatter.string(from: Date()).lowercased() : " "
+        return (showTwelveHour) ? ampmFormatter.string(from: dateTime.current).lowercased() : " "
     }
     var day: String {
-        return (dayVisible) ? dayFormatter.string(from: Date()) : ""
+        return (dayVisible) ? dayFormatter.string(from: dateTime.current) : ""
     }
     var date: String {
-        return (dateVisible) ? dateFormatter.string(from: Date()) : ""
+        return (dateVisible) ? dateFormatter.string(from: dateTime.current) : ""
     }
     var timeZone: String {
-        return (timeZoneVisible) ? timeZoneFormatter.string(from: Date()) : " "
+        return (timeZoneVisible) ? timeZoneFormatter.string(from: dateTime.current) : " "
     }
 
     func toggleHoursDisplay() {
         showTwelveHour = !showTwelveHour
-        defaults.set(showTwelveHour, forKey: SystemClock.hours12Key)
+        defaults.set(showTwelveHour, forKey: StandardDeskClockViewModel.hours12Key)
     }
 
     func toggleSecondsDisplay() {
         secondsVisible = !secondsVisible
-        defaults.set(secondsVisible, forKey: SystemClock.secondsKey)
+        defaults.set(secondsVisible, forKey: StandardDeskClockViewModel.secondsKey)
     }
 
     func toggleDayDisplay() {
         dayVisible = !dayVisible
-        defaults.set(dayVisible, forKey: SystemClock.dayKey)
+        defaults.set(dayVisible, forKey: StandardDeskClockViewModel.dayKey)
     }
 
     func toggleDateDisplay() {
         dateVisible = !dateVisible
-        defaults.set(dateVisible, forKey: SystemClock.dateKey)
+        defaults.set(dateVisible, forKey: StandardDeskClockViewModel.dateKey)
     }
 
     func toggleTimeZoneDisplay() {
         timeZoneVisible = !timeZoneVisible
-        defaults.set(timeZoneVisible, forKey: SystemClock.timeZoneKey)
+        defaults.set(timeZoneVisible, forKey: StandardDeskClockViewModel.timeZoneKey)
     }
 }

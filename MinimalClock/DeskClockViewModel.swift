@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ClockViewModel {
+protocol DeskClockViewModel {
     var hoursAndMinutes: String { get }
     var seconds: String { get }
     var ampm: String { get }

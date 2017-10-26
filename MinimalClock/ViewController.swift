@@ -26,12 +26,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var timeZoneButton: UIButton!
+    @IBOutlet weak var hourButtonWidth: NSLayoutConstraint!
+    @IBOutlet weak var secondsButtonWidth: NSLayoutConstraint!
+    @IBOutlet weak var dayButtonWidth: NSLayoutConstraint!
+    @IBOutlet weak var dateButtonWidth: NSLayoutConstraint!
+    @IBOutlet weak var timeZoneButtonWidth: NSLayoutConstraint!
+    @IBOutlet var stackConstraint: NSLayoutConstraint!
+    
+    let clockViewModel: DeskClockViewModel = StandardDeskClockViewModel(dateTime: SystemDateTime())
 
-    let clockViewModel: ClockViewModel = SystemClock()
+    var timer: Timer? 
 
-    var timer = Timer()
-
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         UIApplication.shared.isIdleTimerDisabled = true
 
@@ -52,17 +59,24 @@ class ViewController: UIViewController {
         initialiseButton(dayButton, with: clockViewModel.dayButtonText)
         initialiseButton(dateButton, with: clockViewModel.dateButtonText)
         initialiseButton(timeZoneButton, with: clockViewModel.timeZoneButtonText)
-        buttonStack.isHidden = true
+        buttonStack.isHidden = false
+        toggleButtons()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         timer = Timer.scheduledTimer(timeInterval: 1.0,
             target: self,
             selector: #selector(tick),
             userInfo: nil,
             repeats: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        timer = nil
     }
 
     @objc func tick() {
@@ -85,6 +99,13 @@ class ViewController: UIViewController {
 
     @IBAction func toggleButtons() {
         buttonStack.isHidden = !buttonStack.isHidden
+        stackConstraint.isActive = !buttonStack.isHidden
+        hourButtonWidth.constant = (buttonStack.isHidden) ? 0 : 1000
+        secondsButtonWidth.constant = (buttonStack.isHidden) ? 0 : 1000
+        dayButtonWidth.constant = (buttonStack.isHidden) ? 0 : 1000
+        dateButtonWidth.constant = (buttonStack.isHidden) ? 0 : 1000
+        timeZoneButtonWidth.constant = (buttonStack.isHidden) ? 0 : 1000
+        print(hourButtonWidth.constant)
     }
 
     @IBAction func toggleHours() {

@@ -15,7 +15,7 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "ClockIcon29@2x-1.png",
+      "filename" : "ClockIcon29@2x.png",
       "scale" : "2x"
     },
     {
@@ -27,7 +27,7 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "ClockIcon40@2x-1.png",
+      "filename" : "ClockIcon40@2x.png",
       "scale" : "2x"
     },
     {
@@ -57,7 +57,7 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "ClockIcon20@2x-1.png",
+      "filename" : "ClockIcon20@2x.png",
       "scale" : "2x"
     },
     {
@@ -99,7 +99,7 @@
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "ClockIcon83p5@2x.png",
+      "filename" : "ClockIcon835@2x.png",
       "scale" : "2x"
     },
     {

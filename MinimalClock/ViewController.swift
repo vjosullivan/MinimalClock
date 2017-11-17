@@ -79,6 +79,11 @@ class ViewController: UIViewController {
         timer = nil
     }
 
+    override func prefersHomeIndicatorAutoHidden() -> Bool
+    {
+        return true
+    }
+
     @objc func tick() {
         hoursMinutes.text = clockViewModel.hoursAndMinutes
         if clockViewModel.hoursAndMinutes.contains("00") {

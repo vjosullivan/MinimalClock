@@ -14,7 +14,6 @@ class StandardDeskClockViewModel: DeskClockViewModel {
     private static let hours12Key = "DChours12"
     private static let secondsKey = "DCseconds"
     private static let dayKey = "DCday"
-    private static let dateKey = "DCdate"
     private static let timeZoneKey = "DCtimeZone"
     
     private let dateTime: DateTime
@@ -34,10 +33,7 @@ class StandardDeskClockViewModel: DeskClockViewModel {
         return (secondsVisible) ? "Hide\nSeconds" : "Show\nSeconds"
     }
     var dayButtonText: String {
-        return (dayVisible) ? "Hide\nDay" : "Show\nDay"
-    }
-    var dateButtonText: String {
-        return (dateVisible) ? "Hide\nDate" : "Show\nDate"
+        return (dayVisible) ? "Hide\nDay / Date" : "Show\nDay / Date"
     }
     var timeZoneButtonText: String {
         return (timeZoneVisible) ? "Hide\nTimezone" : "Show\nTimezone"
@@ -47,7 +43,6 @@ class StandardDeskClockViewModel: DeskClockViewModel {
     var secondsVisible  = true
     var ampmVisible     = false
     var dayVisible      = false
-    var dateVisible     = false
     var timeZoneVisible = false
 
     init(dateTime: DateTime) {
@@ -58,7 +53,6 @@ class StandardDeskClockViewModel: DeskClockViewModel {
         secondsVisible  = defaults.bool(forKey: StandardDeskClockViewModel.secondsKey)
         ampmVisible     = showTwelveHour
         dayVisible      = defaults.bool(forKey: StandardDeskClockViewModel.dayKey)
-        dateVisible     = defaults.bool(forKey: StandardDeskClockViewModel.dateKey)
         timeZoneVisible = defaults.bool(forKey: StandardDeskClockViewModel.timeZoneKey)
 
         hh12mmFormatter.dateFormat = "h:mm"
@@ -108,7 +102,7 @@ class StandardDeskClockViewModel: DeskClockViewModel {
         return (dayVisible) ? dayFormatter.string(from: dateTime.current) : ""
     }
     var date: String {
-        return (dateVisible) ? dateFormatter.string(from: dateTime.current) : ""
+        return (dayVisible) ? dateFormatter.string(from: dateTime.current) : ""
     }
     var timeZone: String {
         return (timeZoneVisible) ? timeZoneFormatter.string(from: dateTime.current) : " "
@@ -127,11 +121,6 @@ class StandardDeskClockViewModel: DeskClockViewModel {
     func toggleDayDisplay() {
         dayVisible = !dayVisible
         defaults.set(dayVisible, forKey: StandardDeskClockViewModel.dayKey)
-    }
-
-    func toggleDateDisplay() {
-        dateVisible = !dateVisible
-        defaults.set(dateVisible, forKey: StandardDeskClockViewModel.dateKey)
     }
 
     func toggleTimeZoneDisplay() {

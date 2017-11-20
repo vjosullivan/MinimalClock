@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="landscape">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -23,56 +23,56 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MinimalClock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-17-Mfb" userLabel="Clock casing stack">
-                                <rect key="frame" x="197" y="112.5" width="273.5" height="151.5"/>
+                                <rect key="frame" x="51" y="56.6666666666667" width="273" height="150.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ2-lP-gcf" userLabel="Day label">
-                                        <rect key="frame" x="0.0" y="0.0" width="273.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNo-sE-2uP" userLabel="Clock stack">
-                                        <rect key="frame" x="0.0" y="20.5" width="273.5" height="110.5"/>
+                                        <rect key="frame" x="0.0" y="20.333333333333321" width="273" height="109.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 12:34" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-PV-k2A" userLabel="mainClock">
-                                                <rect key="frame" x="0.0" y="0.0" width="234" height="110.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="109.66666666666667"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="84"/>
                                                 <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uub-XR-29Z">
-                                                <rect key="frame" x="234" y="0.0" width="39.5" height="110.5"/>
+                                                <rect key="frame" x="233.66666666666669" y="0.0" width="39.333333333333314" height="109.66666666666667"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="UVC-B1-wZQ" userLabel="Blank label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="39.5" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="20.666666666666668"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
                                                         <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 56" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="s8j-0d-iGm" userLabel="secondsClock">
-                                                        <rect key="frame" x="0.0" y="21" width="39.5" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="20.666666666666686" width="39.333333333333336" height="28.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                                         <color key="textColor" red="1" green="0.53333333333333333" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="ET6-gl-Iwf" userLabel="Blank label">
-                                                        <rect key="frame" x="0.0" y="49.5" width="39.5" height="11.5"/>
+                                                        <rect key="frame" x="0.0" y="49" width="39.333333333333336" height="11.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="10"/>
                                                         <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="uOt-48-ZDV" userLabel="ampmClock">
-                                                        <rect key="frame" x="0.0" y="61" width="39.5" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="60.666666666666693" width="39.333333333333336" height="28.333333333333336"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                                         <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="wqp-Dn-ug2" userLabel="Blank label">
-                                                        <rect key="frame" x="0.0" y="89.5" width="39.5" height="21"/>
+                                                        <rect key="frame" x="0.0" y="89" width="39.333333333333336" height="20.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
                                                         <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 July, 1961" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewa-e9-mYg" userLabel="Date label">
-                                        <rect key="frame" x="0.0" y="131" width="273.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="130" width="273" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -90,16 +90,16 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ba8-mo-rfD" userLabel="Big button">
-                                <rect key="frame" x="0.0" y="0.0" width="545.5" height="375"/>
+                                <rect key="frame" x="0.0" y="44.000000000000014" width="315" height="185.33333333333337"/>
                                 <connections>
                                     <action selector="toggleButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="tJ4-2M-oH1"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-xu-MEX" userLabel="Button Stack">
-                                <rect key="frame" x="545.5" y="0.0" width="121.5" height="375"/>
+                                <rect key="frame" x="315" y="44.000000000000014" width="60" height="185.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygj-Q8-CWn" userLabel="Hours button">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="1000" id="stW-Az-lzK"/>
                                         </constraints>
@@ -109,7 +109,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqu-AV-4ln" userLabel="Seconds button">
-                                        <rect key="frame" x="0.0" y="75" width="121.5" height="75"/>
+                                        <rect key="frame" x="0.0" y="37" width="60" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="121.5" id="xz4-6p-vLS"/>
                                         </constraints>
@@ -119,7 +119,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plT-Zk-ycV" userLabel="dayButton">
-                                        <rect key="frame" x="0.0" y="150" width="121.5" height="75"/>
+                                        <rect key="frame" x="0.0" y="74" width="60" height="37.333333333333343"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="121.5" id="1Cn-YZ-H8B"/>
                                         </constraints>
@@ -129,7 +129,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ts-68-JAd" userLabel="dateButton">
-                                        <rect key="frame" x="0.0" y="225" width="121.5" height="75"/>
+                                        <rect key="frame" x="0.0" y="111.33333333333337" width="60" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="121.5" id="2Ws-o2-ZsX"/>
                                         </constraints>
@@ -139,7 +139,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuv-Nk-kfq" userLabel="timezoneButton">
-                                        <rect key="frame" x="0.0" y="300" width="121.5" height="75"/>
+                                        <rect key="frame" x="0.0" y="148.33333333333337" width="60" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="121.5" id="k3x-Ra-dEl"/>
                                         </constraints>
@@ -154,7 +154,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Universal Standard Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBV-tl-KLB" userLabel="TimeZone label">
-                                <rect key="frame" x="0.0" y="354.5" width="667" height="20.5"/>
+                                <rect key="frame" x="0.0" y="209" width="375" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -182,20 +182,14 @@
                         <outlet property="buttonStack" destination="GoA-xu-MEX" id="1ri-xR-wot"/>
                         <outlet property="date" destination="Ewa-e9-mYg" id="ufF-wJ-Vbg"/>
                         <outlet property="dateButton" destination="6Ts-68-JAd" id="muY-aF-LCd"/>
-                        <outlet property="dateButtonWidth" destination="2Ws-o2-ZsX" id="QPM-eS-5l2"/>
                         <outlet property="day" destination="iQ2-lP-gcf" id="sPj-FJ-UmT"/>
                         <outlet property="dayButton" destination="plT-Zk-ycV" id="Ce0-WX-q7i"/>
-                        <outlet property="dayButtonWidth" destination="1Cn-YZ-H8B" id="yZ6-b7-rY5"/>
                         <outlet property="hourButton" destination="ygj-Q8-CWn" id="ycM-bW-HUg"/>
-                        <outlet property="hourButtonWidth" destination="stW-Az-lzK" id="xYT-R3-sLZ"/>
                         <outlet property="hoursMinutes" destination="Nld-PV-k2A" id="bST-AY-iJg"/>
                         <outlet property="seconds" destination="s8j-0d-iGm" id="0xv-Rf-bBS"/>
                         <outlet property="secondsButton" destination="Qqu-AV-4ln" id="qgH-kx-BQj"/>
-                        <outlet property="secondsButtonWidth" destination="xz4-6p-vLS" id="Hzy-wC-Pif"/>
-                        <outlet property="stackConstraint" destination="YQo-NX-RTf" id="Tjt-8g-dMW"/>
                         <outlet property="timeZone" destination="yBV-tl-KLB" id="lIz-Ng-Pbx"/>
                         <outlet property="timeZoneButton" destination="Uuv-Nk-kfq" id="XrA-vh-Kp0"/>
-                        <outlet property="timeZoneButtonWidth" destination="k3x-Ra-dEl" id="k7a-cx-lEI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

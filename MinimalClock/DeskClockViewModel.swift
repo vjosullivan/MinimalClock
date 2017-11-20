@@ -19,19 +19,16 @@ protocol DeskClockViewModel {
     var hourButtonText: String { get }
     var secondButtonText: String { get }
     var dayButtonText: String { get }
-    var dateButtonText: String { get }
     var timeZoneButtonText: String { get }
 
     var showTwelveHour: Bool { get }
     var secondsVisible: Bool { get }
     var ampmVisible: Bool { get }
     var dayVisible: Bool { get }
-    var dateVisible: Bool { get }
     var timeZoneVisible: Bool { get }
 
     func toggleHoursDisplay()
     func toggleSecondsDisplay()
     func toggleDayDisplay()
-    func toggleDateDisplay()
     func toggleTimeZoneDisplay()
 }

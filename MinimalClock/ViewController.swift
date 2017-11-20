@@ -31,7 +31,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var hourButton: UIButton!     { didSet { initialise(button: hourButton, text: clockViewModel.hourButtonText) }}
     @IBOutlet weak var secondsButton: UIButton!  { didSet { initialise(button: secondsButton, text: clockViewModel.secondButtonText) }}
     @IBOutlet weak var dayButton: UIButton!      { didSet { initialise(button: dayButton, text: clockViewModel.dayButtonText) }}
-    @IBOutlet weak var dateButton: UIButton!     { didSet { initialise(button: dateButton, text: clockViewModel.dateButtonText) }}
     @IBOutlet weak var timeZoneButton: UIButton! { didSet { initialise(button: timeZoneButton, text: clockViewModel.timeZoneButtonText) }}
 
     // MARK: - UIViewController functions.
@@ -87,12 +86,6 @@ class ViewController: UIViewController {
     @IBAction func toggleDay() {
         clockViewModel.toggleDayDisplay()
         dayButton.setTitle(clockViewModel.dayButtonText, for: .normal)
-         toggleButtons()
-    }
-
-    @IBAction func toggleDate() {
-        clockViewModel.toggleDateDisplay()
-        dateButton.setTitle(clockViewModel.dateButtonText, for: .normal)
          toggleButtons()
     }
 

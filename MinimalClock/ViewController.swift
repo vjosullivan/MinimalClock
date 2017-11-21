@@ -32,6 +32,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondsButton: UIButton!  { didSet { initialise(button: secondsButton, text: clockViewModel.secondButtonText) }}
     @IBOutlet weak var dayButton: UIButton!      { didSet { initialise(button: dayButton, text: clockViewModel.dayButtonText) }}
     @IBOutlet weak var timeZoneButton: UIButton! { didSet { initialise(button: timeZoneButton, text: clockViewModel.timeZoneButtonText) }}
+    // A "big" button covers all the screen except for the settings buttons.
+    // The settings buttons are covered by a "little" button which gets hidden
+    // when those buttons are revealed.
+    @IBOutlet weak var littleToggleButton: UIButton!
 
     // MARK: - UIViewController functions.
 
@@ -69,6 +73,7 @@ class ViewController: UIViewController {
     @IBAction func toggleButtons() {
         tick()
         buttonStack.isHidden = !buttonStack.isHidden
+        littleToggleButton.isHidden = !buttonStack.isHidden
     }
 
     @IBAction func toggleHours() {

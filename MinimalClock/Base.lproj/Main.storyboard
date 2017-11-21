@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -26,11 +26,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MinimalClock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-17-Mfb" userLabel="Clock casing stack">
-                                <rect key="frame" x="51" y="331.33333333333331" width="273" height="150"/>
+                                <rect key="frame" x="269.66666666666669" y="112.66666666666669" width="273.00000000000006" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ2-lP-gcf" userLabel="Day label">
                                         <rect key="frame" x="0.0" y="0.0" width="273" height="20"/>
@@ -39,7 +39,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNo-sE-2uP" userLabel="Clock stack">
-                                        <rect key="frame" x="0.0" y="20.000000000000007" width="273" height="109.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="19.999999999999979" width="273" height="109.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 12:34" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-PV-k2A" userLabel="mainClock">
                                                 <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="109.66666666666667"/>
@@ -48,7 +48,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uub-XR-29Z">
-                                                <rect key="frame" x="233.66666666666669" y="0.0" width="39.333333333333314" height="109.66666666666667"/>
+                                                <rect key="frame" x="233.66666666666663" y="0.0" width="39.333333333333314" height="109.66666666666667"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="UVC-B1-wZQ" userLabel="Blank label">
                                                         <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="20.666666666666668"/>
@@ -93,37 +93,43 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ba8-mo-rfD" userLabel="Big button">
-                                <rect key="frame" x="0.0" y="44" width="375" height="678.33333333333337"/>
+                                <rect key="frame" x="44" y="0.0" width="609.33333333333337" height="354"/>
                                 <connections>
                                     <action selector="toggleButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="tJ4-2M-oH1"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uo1-eN-RdR" userLabel="Little Button">
+                                <rect key="frame" x="653.33333333333337" y="0.0" width="114.66666666666663" height="354"/>
+                                <connections>
+                                    <action selector="toggleButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="i5W-65-pye"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-xu-MEX" userLabel="Button Stack">
-                                <rect key="frame" x="16" y="722.66666666666663" width="359" height="55.333333333333371"/>
+                                <rect key="frame" x="653.33333333333337" y="0.0" width="114.66666666666663" height="354"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygj-Q8-CWn" userLabel="Hours button">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="55.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="114.66666666666667" height="88.666666666666671"/>
                                         <state key="normal" title="Hours"/>
                                         <connections>
                                             <action selector="toggleHours" destination="BYZ-38-t0r" eventType="touchUpInside" id="9XS-iW-F1r"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqu-AV-4ln" userLabel="Seconds button">
-                                        <rect key="frame" x="106" y="0.0" width="60" height="55.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="88.666666666666686" width="114.66666666666667" height="88.333333333333314"/>
                                         <state key="normal" title="Seconds"/>
                                         <connections>
                                             <action selector="toggleSeconds" destination="BYZ-38-t0r" eventType="touchUpInside" id="hbf-E5-jkY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plT-Zk-ycV" userLabel="dayButton">
-                                        <rect key="frame" x="230" y="0.0" width="30" height="55.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="177" width="114.66666666666667" height="88.666666666666686"/>
                                         <state key="normal" title="Day"/>
                                         <connections>
                                             <action selector="toggleDay" destination="BYZ-38-t0r" eventType="touchUpInside" id="Va9-Lx-rjr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuv-Nk-kfq" userLabel="timezoneButton">
-                                        <rect key="frame" x="324" y="0.0" width="35" height="55.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="265.66666666666669" width="114.66666666666667" height="88.333333333333314"/>
                                         <state key="normal" title="Zone"/>
                                         <connections>
                                             <action selector="toggleTimeZone" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ce9-si-NQq"/>
@@ -132,7 +138,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GoA-xu-MEX" secondAttribute="height" multiplier="6.472:1" identifier="..." id="VgC-kt-rJn"/>
-                                    <constraint firstAttribute="width" secondItem="GoA-xu-MEX" secondAttribute="height" multiplier="1.618:4" id="YQo-NX-RTf"/>
+                                    <constraint firstAttribute="width" secondItem="GoA-xu-MEX" secondAttribute="height" multiplier="1.618:5" id="YQo-NX-RTf"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -145,10 +151,9 @@
                                         <exclude reference="YQo-NX-RTf"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" distribution="equalSpacing"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Universal Standard Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBV-tl-KLB" userLabel="TimeZone label">
-                                <rect key="frame" x="0.0" y="702.33333333333337" width="375" height="20.333333333333371"/>
+                                <rect key="frame" x="44" y="333.66666666666669" width="724" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -157,6 +162,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ba8-mo-rfD" secondAttribute="trailing" id="1yf-JT-7mv"/>
+                            <constraint firstItem="GoA-xu-MEX" firstAttribute="top" secondItem="Uo1-eN-RdR" secondAttribute="top" id="DHp-Zg-BQk"/>
+                            <constraint firstItem="GoA-xu-MEX" firstAttribute="trailing" secondItem="Uo1-eN-RdR" secondAttribute="trailing" id="F2S-18-ofY"/>
                             <constraint firstItem="GoA-xu-MEX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HEg-gP-cEk">
                                 <variation key="heightClass=regular" constant="15.999999999999972"/>
                             </constraint>
@@ -165,6 +172,7 @@
                             <constraint firstItem="yBV-tl-KLB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JKS-Qu-7m2"/>
                             <constraint firstItem="GoA-xu-MEX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JxH-Mr-1yY"/>
                             <constraint firstItem="TPb-17-Mfb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VWo-Ah-lPC"/>
+                            <constraint firstItem="GoA-xu-MEX" firstAttribute="bottom" secondItem="Uo1-eN-RdR" secondAttribute="bottom" id="YRP-Zs-jWb"/>
                             <constraint firstItem="GoA-xu-MEX" firstAttribute="leading" secondItem="Ba8-mo-rfD" secondAttribute="trailing" id="egg-vo-TLZ"/>
                             <constraint firstItem="yBV-tl-KLB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gJJ-Dv-pWz"/>
                             <constraint firstItem="TPb-17-Mfb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gTR-Xk-O3J"/>
@@ -173,6 +181,7 @@
                             <constraint firstItem="GoA-xu-MEX" firstAttribute="top" secondItem="yBV-tl-KLB" secondAttribute="bottom" id="lTt-7h-MPZ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="yBV-tl-KLB" secondAttribute="bottom" id="r6V-2S-XCt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GoA-xu-MEX" secondAttribute="bottom" id="s3T-mn-NdA"/>
+                            <constraint firstItem="GoA-xu-MEX" firstAttribute="leading" secondItem="Uo1-eN-RdR" secondAttribute="leading" id="vdJ-IZ-vZe"/>
                             <constraint firstItem="Ba8-mo-rfD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xvf-Nb-h7j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -205,6 +214,7 @@
                         <outlet property="dayButton" destination="plT-Zk-ycV" id="Ce0-WX-q7i"/>
                         <outlet property="hourButton" destination="ygj-Q8-CWn" id="ycM-bW-HUg"/>
                         <outlet property="hoursMinutes" destination="Nld-PV-k2A" id="bST-AY-iJg"/>
+                        <outlet property="littleToggleButton" destination="Uo1-eN-RdR" id="VMF-tb-QRi"/>
                         <outlet property="seconds" destination="s8j-0d-iGm" id="0xv-Rf-bBS"/>
                         <outlet property="secondsButton" destination="Qqu-AV-4ln" id="qgH-kx-BQj"/>
                         <outlet property="timeZone" destination="yBV-tl-KLB" id="lIz-Ng-Pbx"/>
